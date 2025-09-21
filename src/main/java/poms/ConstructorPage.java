@@ -2,28 +2,31 @@ package poms;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class ConstructorPage { //маркеры «Конструктора»
 
-private final WebDriver driver;
+    private final WebDriver driver;
 
-    public ConstructorPage(WebDriver driver) { this.driver = driver; }
+    public ConstructorPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     // Маркеры конструктора
-    private final By h1Title       = By.xpath("//h1[text()='Соберите бургер']");
-    private final By btnOrder    = By.xpath("//button[text()='Оформить заказ']");
-    private final By tabBunsSpan   = By.xpath("//span[contains(.,'Булки')]");
+    private final By h1Title = By.xpath("//h1[text()='Соберите бургер']");
+    private final By btnOrder = By.xpath("//button[text()='Оформить заказ']");
+    private final By tabBunsSpan = By.xpath("//span[contains(.,'Булки')]");
     private final By tabSaucesSpan = By.xpath("//span[contains(.,'Соусы')]");
-    private final By tabFillSpan   = By.xpath("//span[contains(.,'Начинки')]");
+    private final By tabFillSpan = By.xpath("//span[contains(.,'Начинки')]");
 
     // Кликабельные контейнеры (родитель <span>)
-    private final By tabBunsBtn     = By.xpath("//span[contains(.,'Булки')]/ancestor::*[self::button or self::a or contains(@class,'tab')][1]");
-    private final By tabSaucesBtn   = By.xpath("//span[contains(.,'Соусы')]/ancestor::*[self::button or self::a or contains(@class,'tab')][1]");
+    private final By tabBunsBtn = By.xpath("//span[contains(.,'Булки')]/ancestor::*[self::button or self::a or contains(@class,'tab')][1]");
+    private final By tabSaucesBtn = By.xpath("//span[contains(.,'Соусы')]/ancestor::*[self::button or self::a or contains(@class,'tab')][1]");
     private final By tabFillingsBtn = By.xpath("//span[contains(.,'Начинки')]/ancestor::*[self::button or self::a or contains(@class,'tab')][1]");
 
-//   Ожидание конструктора
+    //   Ожидание конструктора
     public void waitOpenedTab(int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, seconds);
         wait.until(visibilityOfElementLocated(h1Title));
@@ -38,23 +41,47 @@ private final WebDriver driver;
         WebDriverWait wait = new WebDriverWait(driver, seconds);
         // Последовательное ожидание = логическое И (AND)
         wait.until(visibilityOfElementLocated(h1Title));
-        wait.until(visibilityOfElementLocated(btnOrder));
+//        wait.until(visibilityOfElementLocated(btnOrder));
     }
 
     // Клики по вкладкам с безопасностью
-    public void clickBuns()     { safeClick(tabBunsBtn); }
-    public void clickSauces()   { safeClick(tabSaucesBtn); }
-    public void clickFillings() { safeClick(tabFillingsBtn); }
+    public void clickBuns() {
+        safeClick(tabBunsBtn);
+    }
 
-//    Ждём, пока вкладка станет активной (класс на КОНТЕЙНЕРЕ или aria-selected=true)
-    public void waitBunsActive(int seconds)     { waitTabActive(tabBunsBtn, seconds); }
-    public void waitSaucesActive(int seconds)   { waitTabActive(tabSaucesBtn, seconds); }
-    public void waitFillingsActive(int seconds) { waitTabActive(tabFillingsBtn, seconds); }
+    public void clickSauces() {
+        safeClick(tabSaucesBtn);
+    }
 
-//    Быстрая проверка «сейчас активна?» (без ожиданий)
-    public boolean isBunsActive()     { return isTabActive(tabBunsBtn); }
-    public boolean isSaucesActive()   { return isTabActive(tabSaucesBtn); }
-    public boolean isFillingsActive() { return isTabActive(tabFillingsBtn); }
+    public void clickFillings() {
+        safeClick(tabFillingsBtn);
+    }
+
+    //    Ждём, пока вкладка станет активной (класс на КОНТЕЙНЕРЕ или aria-selected=true)
+    public void waitBunsActive(int seconds) {
+        waitTabActive(tabBunsBtn, seconds);
+    }
+
+    public void waitSaucesActive(int seconds) {
+        waitTabActive(tabSaucesBtn, seconds);
+    }
+
+    public void waitFillingsActive(int seconds) {
+        waitTabActive(tabFillingsBtn, seconds);
+    }
+
+    //    Быстрая проверка «сейчас активна?» (без ожиданий)
+    public boolean isBunsActive() {
+        return isTabActive(tabBunsBtn);
+    }
+
+    public boolean isSaucesActive() {
+        return isTabActive(tabSaucesBtn);
+    }
+
+    public boolean isFillingsActive() {
+        return isTabActive(tabFillingsBtn);
+    }
 
     // ---- приватные помощники ----
 

@@ -1,4 +1,4 @@
-package forApi;
+package api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
