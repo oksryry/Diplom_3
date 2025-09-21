@@ -1,4 +1,4 @@
-package utils;
+package steps;
 
 import io.qameta.allure.Step;
 import org.junit.Assert;

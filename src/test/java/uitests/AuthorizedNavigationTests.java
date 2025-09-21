@@ -1,3 +1,5 @@
+package uitests;
+
 import configs.ApiRules;
 import configs.BrowserRules;
 import io.qameta.allure.Description;
@@ -5,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import utils.AuthorizedUserSteps;
+import steps.AuthorizedUserSteps;
 
 public class AuthorizedNavigationTests {
 

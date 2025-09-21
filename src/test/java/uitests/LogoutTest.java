@@ -1,3 +1,4 @@
+package uitests;
 
 import configs.ApiRules;
 import configs.BrowserRules;;
@@ -7,9 +8,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import utils.AuthorizedUserSteps;
-import utils.CommonSteps;
-import utils.LogoutSteps;
+import steps.AuthorizedUserSteps;
+import steps.CommonSteps;
+import steps.LogoutSteps;
 
 public class LogoutTest {
 

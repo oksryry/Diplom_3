@@ -1,3 +1,5 @@
+package uitests;
+
 import com.github.javafaker.Faker;
 import configs.BrowserRules;
 import io.qameta.allure.Description;
@@ -6,9 +8,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import utils.AuthorizedUserSteps;
-import utils.CommonSteps;
-import utils.RegistrationSteps;
+import steps.AuthorizedUserSteps;
+import steps.CommonSteps;
+import steps.RegistrationSteps;
 import java.util.Locale;
 
 

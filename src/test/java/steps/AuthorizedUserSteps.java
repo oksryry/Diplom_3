@@ -1,4 +1,4 @@
-package utils;
+package steps;
 
 import api.User;
 import api.UserCreationAndAuthResponse;
